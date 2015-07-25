@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ragnarok.staticlayouttest.ui.StaticLayoutView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/static_layout_view"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"/>

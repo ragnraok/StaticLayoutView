@@ -1,0 +1,10 @@
+<resources>
+	<string name="app_name">StaticLayoutTest</string>
+
+	<string name="hello_world">Hello world!</string>
+	<string name="action_settings">Settings</string>
+	<string name="title_activity_static_layout_ui">StaticLayoutUI</string>
+	<string name="title_activity_normal_layout_ui">NormalLayoutUI</string>
+	<string name="title_activity_static_long_string_ui">StaticLongStringUI</string>
+	<string name="title_activity_normal_long_string_ui">NormalLongStringUI</string>
+</resources>

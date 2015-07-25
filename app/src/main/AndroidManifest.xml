@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ragnarok.staticlayouttest.app" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.ragnarok.staticlayouttest.ui.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ragnarok.staticlayouttest.ui.StaticLayoutUI"
+            android:label="@string/title_activity_static_layout_ui" >
+        </activity>
+        <activity
+            android:name="com.ragnarok.staticlayouttest.ui.NormalLayoutUI"
+            android:label="@string/title_activity_normal_layout_ui" >
+        </activity>
+        <activity
+            android:name="com.ragnarok.staticlayouttest.ui.StaticLongStringUI"
+            android:label="@string/title_activity_static_long_string_ui" >
+        </activity>
+        <activity
+            android:name="com.ragnarok.staticlayouttest.ui.NormalLongStringUI"
+            android:label="@string/title_activity_normal_long_string_ui" >
+        </activity>
+    </application>
+
+</manifest>
