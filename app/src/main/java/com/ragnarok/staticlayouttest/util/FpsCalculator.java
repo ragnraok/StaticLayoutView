@@ -32,11 +32,22 @@ public class FpsCalculator {
 	
 	private int totalFps;
 	private int fpsCalculateCount;
+	private boolean isCalculatingFPS;
 	
 	// calculate the average fps
 	
 	public void startCalculate() {
-		
+		totalFps = 0;
+		fpsCalculateCount = 0;
+		isCalculatingFPS = true;
+	}
+	
+	public int stopGetAvgFPS() {
+		isCalculatingFPS = false;
+		int avgFPS = totalFps / fpsCalculateCount;
+		totalFps = 0;
+		fpsCalculateCount = 0;
+		return avgFPS;
 	}
 
 	private void syncCheckThread(){
@@ -44,6 +55,10 @@ public class FpsCalculator {
 			return;
 		}
 		int val = atom.getAndSet(0);
+		if (isCalculatingFPS) {
+			totalFps += val;
+			fpsCalculateCount++;
+		}
 		android.util.Log.i(TAG, "FPS: " + val);
 		try {
 			Thread.sleep(1000);
@@ -80,6 +95,9 @@ public class FpsCalculator {
 			@Override
 			public void run() {
 				for (;;) {
+					if (!mRunning) {
+						break;
+					}
 					syncCheckThread();
 				}
 			}
@@ -103,7 +121,11 @@ public class FpsCalculator {
 	public void stop() {
 		mRunning = false;
 		if (syncCheckThread != null) {
-			syncCheckThread.interrupt();
+			try {
+				syncCheckThread.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

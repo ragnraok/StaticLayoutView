@@ -20,14 +20,11 @@ public class NormalLongStringUI extends ActionBarActivity {
         
         textView = (TextView) findViewById(R.id.text);
         textView.setText(TestSpan.getLongSpanString());
-
-        FpsCalculator.instance().start();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        FpsCalculator.instance().stop();
     }
 
     @Override

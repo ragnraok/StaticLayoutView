@@ -19,14 +19,11 @@ public class StaticLongStringUI extends ActionBarActivity {
         staticLayoutView = (StaticLayoutView) findViewById(R.id.static_layout_view);
         
         staticLayoutView.setLayout(StaticLayoutManager.getInstance().getLongStringLayout());
-
-        FpsCalculator.instance().start();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        FpsCalculator.instance().stop();
     }
 
     @Override

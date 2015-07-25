@@ -47,14 +47,11 @@ public class NormalLayoutUI extends ActionBarActivity {
                 autoScrollHandler.startAutoScrollUp();
             }
         });
-
-        FpsCalculator.instance().start();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        FpsCalculator.instance().stop();
     }
 
     @Override

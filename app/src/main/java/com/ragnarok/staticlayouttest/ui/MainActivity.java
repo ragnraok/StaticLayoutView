@@ -64,6 +64,8 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+        
+        FpsCalculator.instance().start();
 
         new Thread(new Runnable() {
             @Override
@@ -87,6 +89,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onDestroy() {
         super.onDestroy();
         FpsCalculator.instance().stop();
+        GhostThread.stop();
     }
 
     @Override

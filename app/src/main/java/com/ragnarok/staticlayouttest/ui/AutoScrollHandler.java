@@ -3,6 +3,8 @@ package com.ragnarok.staticlayouttest.ui;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.ListView;
+import android.widget.Toast;
+import com.ragnarok.staticlayouttest.util.FpsCalculator;
 import com.ragnarok.staticlayouttest.util.Util;
 
 import java.util.Timer;
@@ -26,10 +28,18 @@ public class AutoScrollHandler {
     
     public void startAutoScrollDown() {
         final Timer timer = new Timer();
+        FpsCalculator.instance().startCalculate();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 if (listView.getLastVisiblePosition() >= itemCount - 1) {
+                    final int avgFps = FpsCalculator.instance().stopGetAvgFPS();
+                    uiHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(listView.getContext(), "Average FPS: " + avgFps, Toast.LENGTH_LONG).show();
+                        }
+                    });
                     timer.cancel();
                 }
                 uiHandler.post(new Runnable() {
@@ -45,10 +55,18 @@ public class AutoScrollHandler {
     
     public void startAutoScrollUp() {
         final Timer timer = new Timer();
+        FpsCalculator.instance().startCalculate();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 if (listView.getFirstVisiblePosition() <= 1) {
+                    final int avgFps = FpsCalculator.instance().stopGetAvgFPS();
+                    uiHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(listView.getContext(), "Average FPS: " + avgFps, Toast.LENGTH_LONG).show();
+                        }
+                    });
                     timer.cancel();
                 }
                 uiHandler.post(new Runnable() {
