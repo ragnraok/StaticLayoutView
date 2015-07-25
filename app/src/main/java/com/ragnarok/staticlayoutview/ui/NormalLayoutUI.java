@@ -1,38 +1,38 @@
-package com.ragnarok.staticlayouttest.ui;
+package com.ragnarok.staticlayoutview.ui;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.TypedValue;
 import android.view.*;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.ragnarok.staticlayouttest.app.R;
-import com.ragnarok.staticlayouttest.util.Util;
-import com.ragnarok.staticlayouttest.util.FpsCalculator;
+import com.ragnarok.staticlayoutview.util.TestSpan;
+import com.ragnarok.staticlayoutview.util.Util;
 
-public class StaticLayoutUI extends ActionBarActivity {
+public class NormalLayoutUI extends ActionBarActivity {
+
+    private ListView listView;
     
-    private static final String TAG = "StaticLayoutUI";
-    
-    private ListView listview;
-    
-    private StaticListAdapter adapter;
+    private NormalListAdapter adapter;
     
     private AutoScrollHandler autoScrollHandler;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_static_layout_ui);
+        setContentView(R.layout.activity_normal_layout_ui);
         
-        listview = (ListView) findViewById(R.id.test_list);
+        listView = (ListView) findViewById(R.id.test_list);
         
-        adapter = new StaticListAdapter(this);
+        adapter = new NormalListAdapter(this);
         
-        listview.setAdapter(adapter);
+        listView.setAdapter(adapter);
         
-        autoScrollHandler = new AutoScrollHandler(listview, Util.TEST_LIST_ITEM_COUNT);
-        
+        autoScrollHandler = new AutoScrollHandler(listView, Util.TEST_LIST_ITEM_COUNT);
+
         findViewById(R.id.scroll_down_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +46,6 @@ public class StaticLayoutUI extends ActionBarActivity {
                 autoScrollHandler.startAutoScrollUp();
             }
         });
-        
     }
 
     @Override
@@ -57,7 +56,7 @@ public class StaticLayoutUI extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_static_layout_ui, menu);
+        getMenuInflater().inflate(R.menu.menu_normal_layout_ui, menu);
         return true;
     }
 
@@ -76,11 +75,11 @@ public class StaticLayoutUI extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     
-    private static class StaticListAdapter extends BaseAdapter {
+    private static class NormalListAdapter extends BaseAdapter {
         
         private Context context;
         
-        public StaticListAdapter(Context context) {
+        public NormalListAdapter(Context context) {
             this.context = context;
         }
 
@@ -102,23 +101,23 @@ public class StaticLayoutUI extends ActionBarActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.static_list_item, parent, false);
-                
+                convertView = LayoutInflater.from(context).inflate(R.layout.normal_list_item, parent, false);
+
                 ViewHolder viewHolder = new ViewHolder();
-                viewHolder.staticLayoutView = (StaticLayoutView) convertView.findViewById(R.id.static_layout_view);
-                
+                viewHolder.textView = (TextView) convertView.findViewById(R.id.normal_text);
+
                 convertView.setTag(viewHolder);
             }
-            
+
             ViewHolder holder = (ViewHolder) convertView.getTag();
-            holder.staticLayoutView.setLayout(StaticLayoutManager.getInstance().getLayout(position));
-            holder.staticLayoutView.invalidate();
-            
+            holder.textView.setText(TestSpan.getSpanString(position));
+            holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, Util.fromDPtoPix(context, Util.TEXT_SIZE_DP));
+
             return convertView;
         }
-        
+
         private class ViewHolder {
-            StaticLayoutView staticLayoutView;
+            TextView textView;
         }
     }
 }

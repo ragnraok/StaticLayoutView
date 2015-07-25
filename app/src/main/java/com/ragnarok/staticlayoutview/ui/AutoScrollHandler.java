@@ -1,11 +1,11 @@
-package com.ragnarok.staticlayouttest.ui;
+package com.ragnarok.staticlayoutview.ui;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.ListView;
 import android.widget.Toast;
-import com.ragnarok.staticlayouttest.util.FpsCalculator;
-import com.ragnarok.staticlayouttest.util.Util;
+import com.ragnarok.staticlayoutview.util.FpsCalculator;
+import com.ragnarok.staticlayoutview.util.Util;
 
 import java.util.Timer;
 import java.util.TimerTask;

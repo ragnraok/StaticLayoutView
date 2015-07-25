@@ -1,25 +1,23 @@
-package com.ragnarok.staticlayouttest.ui;
+package com.ragnarok.staticlayoutview.ui;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import com.ragnarok.staticlayouttest.app.R;
-import com.ragnarok.staticlayouttest.util.FpsCalculator;
-import com.ragnarok.staticlayouttest.util.TestSpan;
 
-public class NormalLongStringUI extends ActionBarActivity {
+public class StaticLongStringUI extends ActionBarActivity {
+
+    private StaticLayoutView staticLayoutView;
     
-    private TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_normal_long_string_ui);
+        setContentView(R.layout.activity_static_long_string_ui);
         
-        textView = (TextView) findViewById(R.id.text);
-        textView.setText(TestSpan.getLongSpanString());
+        staticLayoutView = (StaticLayoutView) findViewById(R.id.static_layout_view);
+        
+        staticLayoutView.setLayout(StaticLayoutManager.getInstance().getLongStringLayout());
     }
 
     @Override
@@ -30,7 +28,7 @@ public class NormalLongStringUI extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_normal_long_string_ui, menu);
+        getMenuInflater().inflate(R.menu.menu_static_long_string_ui, menu);
         return true;
     }
 

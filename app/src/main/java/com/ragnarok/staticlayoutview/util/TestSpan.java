@@ -1,4 +1,4 @@
-package com.ragnarok.staticlayouttest.util;
+package com.ragnarok.staticlayoutview.util;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;

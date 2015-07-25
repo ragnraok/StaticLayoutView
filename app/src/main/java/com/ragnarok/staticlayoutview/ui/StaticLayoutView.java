@@ -1,4 +1,4 @@
-package com.ragnarok.staticlayouttest.ui;
+package com.ragnarok.staticlayoutview.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;

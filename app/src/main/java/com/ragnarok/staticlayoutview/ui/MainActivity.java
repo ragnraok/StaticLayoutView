@@ -1,4 +1,4 @@
-package com.ragnarok.staticlayouttest.ui;
+package com.ragnarok.staticlayoutview.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.ragnarok.staticlayouttest.app.R;
-import com.ragnarok.staticlayouttest.util.FpsCalculator;
-import com.ragnarok.staticlayouttest.util.GhostThread;
-import com.ragnarok.staticlayouttest.util.TestSpan;
+import com.ragnarok.staticlayoutview.util.FpsCalculator;
+import com.ragnarok.staticlayoutview.util.GhostThread;
+import com.ragnarok.staticlayoutview.util.TestSpan;
 
 
 public class MainActivity extends ActionBarActivity {

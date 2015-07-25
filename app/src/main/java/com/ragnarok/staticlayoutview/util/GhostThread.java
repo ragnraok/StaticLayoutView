@@ -1,4 +1,4 @@
-package com.ragnarok.staticlayouttest.util;
+package com.ragnarok.staticlayoutview.util;
 
 /**
  * Created by ragnarok on 15/7/22.

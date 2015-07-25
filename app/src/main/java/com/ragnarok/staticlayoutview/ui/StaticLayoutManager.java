@@ -1,4 +1,4 @@
-package com.ragnarok.staticlayouttest.ui;
+package com.ragnarok.staticlayoutview.ui;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
 import android.text.*;
-import com.ragnarok.staticlayouttest.util.TestSpan;
-import com.ragnarok.staticlayouttest.util.Util;
+import com.ragnarok.staticlayoutview.util.TestSpan;
+import com.ragnarok.staticlayoutview.util.Util;
 
 /**
  * Created by ragnarok on 15/7/21.

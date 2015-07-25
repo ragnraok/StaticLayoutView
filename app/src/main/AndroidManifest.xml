@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.ragnarok.staticlayouttest.ui.MainActivity"
+            android:name="com.ragnarok.staticlayoutview.ui.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,19 +17,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ragnarok.staticlayouttest.ui.StaticLayoutUI"
+            android:name="com.ragnarok.staticlayoutview.ui.StaticLayoutUI"
             android:label="@string/title_activity_static_layout_ui" >
         </activity>
         <activity
-            android:name="com.ragnarok.staticlayouttest.ui.NormalLayoutUI"
+            android:name="com.ragnarok.staticlayoutview.ui.NormalLayoutUI"
             android:label="@string/title_activity_normal_layout_ui" >
         </activity>
         <activity
-            android:name="com.ragnarok.staticlayouttest.ui.StaticLongStringUI"
+            android:name="com.ragnarok.staticlayoutview.ui.StaticLongStringUI"
             android:label="@string/title_activity_static_long_string_ui" >
         </activity>
         <activity
-            android:name="com.ragnarok.staticlayouttest.ui.NormalLongStringUI"
+            android:name="com.ragnarok.staticlayoutview.ui.NormalLongStringUI"
             android:label="@string/title_activity_normal_long_string_ui" >
         </activity>
     </application>

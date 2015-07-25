@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.ragnarok.staticlayouttest.ui.NormalLongStringUI">
+                tools:context="com.ragnarok.staticlayoutview.ui.NormalLongStringUI">
 
 	<TextView
 		android:text="@string/hello_world"
