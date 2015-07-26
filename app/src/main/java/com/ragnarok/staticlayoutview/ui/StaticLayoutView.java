@@ -12,6 +12,9 @@ import android.view.View;
 public class StaticLayoutView extends View {
     
     private Layout layout = null;
+    
+    private int width;
+    private int height;
 
     public StaticLayoutView(Context context) {
         super(context);
@@ -27,7 +30,11 @@ public class StaticLayoutView extends View {
     
     public void setLayout(Layout layout) {
         this.layout = layout;
-        requestLayout();
+        if (this.layout.getWidth() != width || this.layout.getHeight() != height) {
+            width = this.layout.getWidth();
+            height = this.layout.getHeight();
+            requestLayout();
+        }
     } 
 
     @Override
